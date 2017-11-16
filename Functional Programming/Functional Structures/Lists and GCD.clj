@@ -22,8 +22,7 @@
                     
 				(if (> (count lst) 2)
 				    (big (inc i) t (conj lista lst) lst2) 
-				    (big (inc i) t (conj lista lst) lst2)                    
-				    ))))                    
+				    (big (inc i) t (conj lista lst) lst2)))))                    
 	(big 0 T '() '()))
     
 (def ab (biglist))
