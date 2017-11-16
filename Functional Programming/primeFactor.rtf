@@ -1,0 +1,32 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;\csgray\c100000;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 (defn primeFactor [numInt]\
+	(if (not= numInt 1)\
+		(do \
+			(defn isPrime [x]\
+				(defn divisible? [a b]\
+			  		(zero? (mod a b)))\
+			  	(and (> x 1) (not-any? (partial divisible? x) (range 2 x))))\
+			(defn theReal [n i lst]\
+				(if (and (not= n 1) (> (inc n) i))\
+					(do  \
+						(if  (and (isPrime i) (= (mod n i) 0))\
+							(theReal (/ n i) i (conj lst i))\
+							(theReal n (inc i) lst)\
+							);end if\
+						);end do\
+					(do lst);end do\
+					);end if \
+				);end the real\
+			(mapcat list* (vec (reverse (frequencies (theReal numInt 2 '())))))\
+			);End do\
+		(do numInt);end do\
+		);end if\
+	);en dalll\
+\
+(apply println (primeFactor 1125))}
